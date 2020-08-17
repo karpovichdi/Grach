@@ -11,7 +11,58 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
+    <PackageReference Include="Refit" Version="5.1.67" />
+    <PackageReference Include="SimpleInjector" Version="5.0.3" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\FirstTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ModalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\NonModalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\SecondTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ThirdTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\FirstTabView.xaml.cs">
+      <DependentUpon>FirstTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ModalView.xaml.cs">
+      <DependentUpon>ModalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\NonModalView.xaml.cs">
+      <DependentUpon>NonModalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\SecondTabView.xaml.cs">
+      <DependentUpon>SecondTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ThirdTabView.xaml.cs">
+      <DependentUpon>ThirdTabView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="New View"
+             NavigationPage.HasNavigationBar="True"
+             x:Class="Grach.Pages.NonModalView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Value}"
+                   FontSize="Large"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+
+            <Button WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,20"
+                    VerticalOptions="Center"
+                    Text="To Common Navigation Page"
+                    BackgroundColor="AliceBlue"
+                    Command="{Binding NavigateToNavigationPageCommand}"/>
+
+            <Button WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,50"
+                    VerticalOptions="Center"
+                    Text="Navigate Back"
+                    BackgroundColor="AliceBlue"
+                    Command="{Binding NavigateBackCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

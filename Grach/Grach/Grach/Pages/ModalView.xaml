@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Modal View"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
+             x:Class="Grach.Pages.ModalView">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand">
+            <Button WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="0,0,0,20"
+                    Text="Navigate To Next Modal View"
+                    BackgroundColor="AliceBlue"
+                    Command="{Binding NavigateToNextModalCommand}"/>
+
+            <Button WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Navigate Back"
+                    BackgroundColor="AliceBlue"
+                    Command="{Binding NavigateBackCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
