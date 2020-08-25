@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
@@ -18,6 +19,7 @@ namespace Grach.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public const int BackButtonId = 16908332;
+        public static Context Context { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -25,6 +27,8 @@ namespace Grach.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            Context = this;
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState); 

@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Effects\IosRoundedLayoutEffect.cs" />
     <Compile Include="Initializer\IosInitializer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

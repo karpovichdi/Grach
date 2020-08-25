@@ -4,31 +4,146 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:effects="clr-namespace:Grach.Effects;assembly=Grach"
              mc:Ignorable="d"
              Title="Modal View"
-             NavigationPage.HasNavigationBar="True"
-             NavigationPage.HasBackButton="True"
-             x:Class="Grach.Pages.ModalView">
-    <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand"
-                     VerticalOptions="CenterAndExpand">
-            <Button WidthRequest="250"
-                    HeightRequest="50"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Margin="0,0,0,20"
-                    Text="Navigate To Next Modal View"
-                    BackgroundColor="AliceBlue"
-                    Command="{Binding NavigateToNextModalCommand}"/>
-
-            <Button WidthRequest="250"
-                    HeightRequest="50"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Text="Navigate Back"
-                    BackgroundColor="AliceBlue"
-                    Command="{Binding NavigateBackCommand}"/>
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             x:Class="Grach.Pages.ModalView"
+             BackgroundColor="#242424">
+    <!-- <StackLayout HorizontalOptions="CenterAndExpand" -->
+    <!--              VerticalOptions="CenterAndExpand" -->
+    <!--              IsVisible="False"> -->
+    <!--     <Button HorizontalOptions="Center" -->
+    <!--             VerticalOptions="Center" -->
+    <!--             Margin="0,0,0,20" -->
+    <!--             Text="Next" -->
+    <!--             BackgroundColor="AliceBlue" -->
+    <!--             Command="{Binding NavigateToNextModalCommand}"/> -->
+    <!--     <Button HorizontalOptions="Center" -->
+    <!--             VerticalOptions="Center" -->
+    <!--             Text="Back" -->
+    <!--             BackgroundColor="AliceBlue" -->
+    <!--             Command="{Binding NavigateBackCommand}"/> -->
+    <!-- </StackLayout> -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     BackgroundColor="White">
+            <StackLayout.Effects>
+                <effects:RoundedLayoutEffect HasShadow="True"
+                                             ShadowRadius="4"
+                                             ShadowColor="Black"
+                                             HasBorder="True"
+                                             BorderColor="White"
+                                             BorderWidth="1"
+                                             CornerRadius="15"/>
+            </StackLayout.Effects>
+            <Label Text="Войти"
+                   FontSize="19"
+                   Margin="0,10,0,0"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Black"/>
+            <Grid Margin="0,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <BoxView Grid.Row="0"
+                         Grid.Column="1"
+                         WidthRequest="60"
+                         HeightRequest="60"
+                         CornerRadius="10,10,10,10"
+                         BackgroundColor="#a3a8e2"/>
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="V"
+                       FontSize="45"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                <BoxView Grid.Row="0"
+                         Grid.Column="3"
+                         WidthRequest="60"
+                         HeightRequest="60"
+                         CornerRadius="10,10,10,10"
+                         BackgroundColor="#a3a8e2"/>
+                <Label Grid.Row="0"
+                       Grid.Column="3"
+                       Text="G"
+                       FontSize="45"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                <BoxView Grid.Row="0"
+                         Grid.Column="5"
+                         WidthRequest="60"
+                         HeightRequest="60"
+                         CornerRadius="10,10,10,10"
+                         BackgroundColor="#a3a8e2"/>
+                <Label Grid.Row="0"
+                       Grid.Column="5"
+                       Text="T"
+                       FontSize="45"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Grid>
         </StackLayout>
-    </ContentPage.Content>
-
+        
+        <StackLayout Grid.Row="0"
+                     HorizontalOptions="Center"
+                     VerticalOptions="EndAndExpand">
+            <Label HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Margin="20,0,20,0"
+                   TextColor="White"
+                   InputTransparent="True"
+                   FontSize="14">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Вы можете "  
+                              FontSize="14"/>
+                        <Span Text="протестировать" 
+                              TextDecorations="Underline"
+                              TextColor="#4e8395"/>
+                        <Span Text=" наше приложение без авторизации." 
+                              FontSize="14"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+            <Label HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" 
+                   Margin="20,13,20,30"
+                   TextColor="White"
+                   InputTransparent="True"
+                   Text="Обращаем ваше внимание, что некоторые важные функции приложения будут для вас недоступны."
+                   FontSize="14"/>
+        </StackLayout>
+        
+    </Grid>
+    
+    
 </ContentPage>
