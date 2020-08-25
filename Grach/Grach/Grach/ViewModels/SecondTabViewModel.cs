@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Windows.Input;
+using Grach.Core.Interfaces;
 using Grach.Extensions;
 using Grach.Pages;
 using Grach.ViewModels.Base;
 using Prism;
 using Prism.Navigation;
 using Prism.Navigation.TabbedPages;
+using Prism.Services.Dialogs;
 using Xamarin.Forms;
 
 namespace Grach.ViewModels
@@ -29,8 +31,11 @@ namespace Grach.ViewModels
             }
         }
 
-        public SecondTabViewModel(INavigationService navigationService)
-            : base(navigationService)
+        public SecondTabViewModel(ICommandResolver commandResolver,
+                                  INavigationService navigationService,
+                                  IDialogService dialogService,
+                                  ILoggingServiceProvider logger)
+            : base(navigationService, dialogService, logger)
         {
             NavigateToNavigationPageCommand = new Command(NavigateToNavigationPage);
             SwitchTabCommand = new Command(SwitchTab);

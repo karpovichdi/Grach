@@ -25,7 +25,7 @@ namespace Grach.Droid.Effects
 
         protected override void OnAttached()
         {
-            _context = MainActivity.Context;
+            _context = MainActivity.Instance;
             _effect = (RoundedLayoutEffect)Element.Effects.FirstOrDefault(x => x is RoundedLayoutEffect);
 
             if (_effect == null) 

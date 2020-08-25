@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Input;
+using Grach.Core.Interfaces;
 using Grach.Extensions;
 using Grach.Pages;
 using Grach.ViewModels.Base;
 using Prism;
 using Prism.Navigation;
-
+using Prism.Services.Dialogs;
 using Xamarin.Forms;
 
 namespace Grach.ViewModels
@@ -26,8 +27,11 @@ namespace Grach.ViewModels
 
         public ICommand NavigateToNavigationPageCommand { get; }
 
-        public ThirdTabViewModel(INavigationService navigationService)
-            : base(navigationService)
+        public ThirdTabViewModel(ICommandResolver commandResolver,
+                                 INavigationService navigationService,
+                                 IDialogService dialogService,
+                                 ILoggingServiceProvider logger)
+            : base(navigationService, dialogService, logger)
         {
             NavigateToNavigationPageCommand = new Command(NavigateToNavigationPage);
         }
@@ -41,7 +45,7 @@ namespace Grach.ViewModels
 
         private void NavigateToNavigationPage(object obj)
         {
-            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(ModalView)}", null, true);
+            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginView)}", null, true);
         }
     }
 }

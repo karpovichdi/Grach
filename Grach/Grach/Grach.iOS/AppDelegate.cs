@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Grach.iOS.Dependencies;
 using Grach.iOS.Initializer;
 using UIKit;
 
@@ -23,10 +24,16 @@ namespace Grach.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App(new IosInitializer()));
-
+            InitializeApplication();
+            
             return base.FinishedLaunching(app, options);
+        }
+        
+        private void InitializeApplication()
+        {
+            Xamarin.Forms.Forms.Init();
+
+            LoadApplication(new App(new IosDependenciesInitializer(this)));
         }
     }
 }

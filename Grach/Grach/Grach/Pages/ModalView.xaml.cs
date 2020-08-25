@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Grach.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ModalView : ContentPage
+    public partial class LoginView : ContentPage
     {
-        public ModalView()
+        public LoginView()
         {
             InitializeComponent();
         }

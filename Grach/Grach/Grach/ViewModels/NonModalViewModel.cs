@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Grach.Core.Interfaces;
 using Grach.Extensions;
 using Grach.Pages;
 using Grach.ViewModels.Base;
 using Prism.Navigation;
+using Prism.Services.Dialogs;
 using Xamarin.Forms;
 
 namespace Grach.ViewModels
@@ -16,8 +18,11 @@ namespace Grach.ViewModels
         public ICommand NavigateToNavigationPageCommand { get; }
         public ICommand NavigateBackCommand { get; }
 
-        public NonModalViewModel(INavigationService navigationService)
-            : base(navigationService) 
+        public NonModalViewModel(ICommandResolver commandResolver,
+               INavigationService navigationService,
+               IDialogService dialogService,
+               ILoggingServiceProvider logger)
+            : base(navigationService, dialogService, logger) 
         {
             NavigateToNavigationPageCommand = new Command(NavigateToNavigationPage);
             NavigateBackCommand = new Command(NavigateBack);
@@ -43,11 +48,6 @@ namespace Grach.ViewModels
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-        }
-
-        public override Task<INavigationResult> NavigateBack(INavigationParameters parameters = null, bool? modalNavigation = null, bool animated = true)
-        {
-            return base.NavigateBack(new NavigationParameters("param=backward"), modalNavigation, animated);
         }
 
         public bool CanNavigate(INavigationParameters parameters)

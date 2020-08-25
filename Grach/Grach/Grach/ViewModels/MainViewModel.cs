@@ -1,6 +1,8 @@
-﻿using Grach.Extensions;
+﻿using Grach.Core.Interfaces;
+using Grach.Extensions;
 using Grach.ViewModels.Base;
 using Prism.Navigation;
+using Prism.Services.Dialogs;
 
 
 namespace Grach.ViewModels
@@ -11,8 +13,11 @@ namespace Grach.ViewModels
         public SecondTabViewModel SecondViewModel { get; private set; }
         public ThirdTabViewModel FirdViewModel { get; private set; }
 
-        public MainViewModel(INavigationService navigationService)
-            : base(navigationService) { }
+        public MainViewModel(ICommandResolver commandResolver,
+                             INavigationService navigationService,
+                             IDialogService dialogService,
+                             ILoggingServiceProvider logger)
+            : base(navigationService, dialogService, logger) { }
 
         public override void OnNavigatedFrom(INavigationParameters parameters)
         {

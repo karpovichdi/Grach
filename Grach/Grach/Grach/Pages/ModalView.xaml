@@ -9,7 +9,7 @@
              Title="Modal View"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
-             x:Class="Grach.Pages.ModalView"
+             x:Class="Grach.Pages.LoginView"
              BackgroundColor="#242424">
     <!-- <StackLayout HorizontalOptions="CenterAndExpand" -->
     <!--              VerticalOptions="CenterAndExpand" -->
@@ -33,7 +33,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
         
         <StackLayout HorizontalOptions="Center"
                      VerticalOptions="Center"
@@ -106,6 +105,9 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
             </Grid>
+            <Button Text="Test"
+                    CornerRadius="4"
+                    Command="{Binding LoginViaGoogleCommand}"/>
         </StackLayout>
         
         <StackLayout Grid.Row="0"

@@ -1,27 +1,19 @@
-﻿using System.Net.Http;
+﻿using Grach.Core.Interfaces;
 using Grach.Extensions;
 using Grach.Pages;
+using Grach.Services;
 using Grach.ViewModels;
 using Prism;
 using Prism.Common;
-using Prism.DryIoc;
 using Prism.Ioc;
-
-using Refit;
-
-using Grach.Extensions;
-using Grach.Interfaces.Services.Api;
-using Grach.ViewModels;
-using Grach.Pages;
-
-using Xamarin.Forms;
-
 using Xamarin.Forms;
 
 namespace Grach
 {
     public partial class App
     {
+        private ILoggingServiceProvider _logger;
+
         public static Page CurrentPage
         {
             get => PageUtilities.GetCurrentPage(PrismApplicationBase.Current.MainPage);
@@ -35,19 +27,15 @@ namespace Grach
         {
             InitializeComponent();
 
+            _logger = Container.Resolve<ILoggingServiceProvider>();
+            
             this.Log();
-            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(MainView)}");
+            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginView)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainView, MainViewModel>();
-            containerRegistry.RegisterForNavigation<FirstTabView, FirstTabViewModel>();
-            containerRegistry.RegisterForNavigation<SecondTabView, SecondTabViewModel>();
-            containerRegistry.RegisterForNavigation<ThirdTabView, ThirdTabViewModel>();
-            containerRegistry.RegisterForNavigation<NonModalView, NonModalViewModel>();
-            containerRegistry.RegisterForNavigation<ModalView, ModalViewModel>();
+            AppDependencies.Register(containerRegistry, Container);
         }
     }
 }

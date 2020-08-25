@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Grach.Core.Interfaces;
 using Grach.Extensions;
 using Grach.Pages;
 using Grach.ViewModels.Base;
 using Prism;
 using Prism.Navigation;
-
+using Prism.Services.Dialogs;
 using Xamarin.Forms;
 
 namespace Grach.ViewModels
@@ -31,8 +32,11 @@ namespace Grach.ViewModels
             }
         }
 
-        public FirstTabViewModel(INavigationService navigationService)
-            : base(navigationService)
+        public FirstTabViewModel(ICommandResolver commandResolver,
+                                 INavigationService navigationService,
+                                 IDialogService dialogService,
+                                 ILoggingServiceProvider logger)
+            : base(navigationService, dialogService, logger)
         {
             Indexes = new List<int>(49);
             for (int i = 0; i < 49; i++)
