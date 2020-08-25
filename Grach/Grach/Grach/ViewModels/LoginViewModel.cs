@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Grach.Core.Interfaces;
+using Grach.Core.Interfaces.Commanding;
 using Grach.Extensions;
 using Grach.Pages;
 using Grach.Services;
@@ -15,12 +17,17 @@ namespace Grach.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
+        private CancellationTokenSource _cancellationTokenSource;
+
         public ICommand NavigateToNextModalCommand { get; }
         public ICommand NavigateBackCommand { get; }
         
         public ICommand LoginViaGoogleCommand { get; }
         
-        public LoginViewModel(ICommandResolver commandResolver,
+        private IAsyncResultCommand<CancellationToken, string> ApiAuthCommand { get; }
+
+        public LoginViewModel(ITestApi testApi,
+                              ICommandResolver commandResolver,
                               INavigationService navigationService,
                               IDialogService dialogService,
                               ILoggingServiceProvider logger)
@@ -28,8 +35,21 @@ namespace Grach.ViewModels
         {
             NavigateToNextModalCommand = new Command(NavigateToNextModal);
             NavigateBackCommand = new Command(NavigateBack);
-            
             LoginViaGoogleCommand = commandResolver.AsyncCommand(LoginViaGoogleCommandHandler, true);
+            
+            ApiAuthCommand = commandResolver.AsyncResultCommand<CancellationToken, string>(
+                execute: parameters => testApi.Authorize(parameters), 
+                ignoreLock: true);
+        }
+
+        public override void OnAppearing()
+        {
+            TestApi();
+        }
+
+        private async Task TestApi()
+        {
+            
         }
 
         private void NavigateBack(object obj)
@@ -60,9 +80,19 @@ namespace Grach.ViewModels
             base.OnNavigatedTo(parameters);
         }
 
-        private Task LoginViaGoogleCommandHandler()
+        private async Task LoginViaGoogleCommandHandler()
         {
-            return NavigationService.NavigateAsync($"/{NavigationKeys.NavigationPageKey}/{NavigationKeys.MainViewKey}");
+            _cancellationTokenSource = new CancellationTokenSource();
+
+            var token = _cancellationTokenSource.Token;
+            token.ThrowIfCancellationRequested();
+            
+            // var test = await ApiAuthCommand.
+            //     ExecuteAsync(_cancellationTokenSource.Token);
+
+            Device.OpenUri(new Uri("https://meetingservice.herokuapp.com/showuser"));
+
+            //return NavigationService.NavigateAsync($"/{NavigationKeys.NavigationPageKey}/{NavigationKeys.MainViewKey}");
         }
     }
 }

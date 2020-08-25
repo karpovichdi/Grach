@@ -8,6 +8,6 @@ namespace Grach.Core.Interfaces
     public interface ITestApi
     {
         [Get("/showuser")]
-        Task<string> Authorize(CancellationToken cancellationToken);
+        Task<string> Authorize(CancellationToken parameters);
     }
 }
