@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Grach.Core.Helpers;
 using Grach.Core.Interfaces;
 using Grach.Extensions;
 using Grach.Pages;
@@ -17,6 +18,8 @@ namespace Grach.ViewModels
         private bool isActive;
 
         public IList<int> Indexes { get; }
+
+        public ObservableRangeCollection<MeetingViewModel> Meetings { get; set; }
 
         public event EventHandler IsActiveChanged;
 
@@ -36,13 +39,32 @@ namespace Grach.ViewModels
                                  INavigationService navigationService,
                                  IDialogService dialogService,
                                  ILoggingServiceProvider logger)
-            : base(navigationService, dialogService, logger)
+            : base(navigationService, dialogService, logger, commandResolver)
         {
             Indexes = new List<int>(49);
             for (int i = 0; i < 49; i++)
                 Indexes.Add(i);
 
             NavigateToNavigationPageCommand = new Command(NavigateToNavigationPage);
+            
+            Meetings = new ObservableRangeCollection<MeetingViewModel>();
+
+            CreateFakeData();
+        }
+
+        private void CreateFakeData()
+        {
+            for (var i=0; i<10; i++)
+            {
+                var meeting = new MeetingViewModel
+                {
+                    Name = "Party name: " + i,
+                    Author = "Author name: " + i,
+                    Distance = i * 100 + " м"
+                };
+                
+                Meetings.Add(meeting);
+            }
         }
 
         public override void Initialize(INavigationParameters parameters)

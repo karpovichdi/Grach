@@ -17,7 +17,7 @@ namespace Grach.ViewModels
                              INavigationService navigationService,
                              IDialogService dialogService,
                              ILoggingServiceProvider logger)
-            : base(navigationService, dialogService, logger) { }
+            : base(navigationService, dialogService, logger, commandResolver) { }
 
         public override void OnNavigatedFrom(INavigationParameters parameters)
         {

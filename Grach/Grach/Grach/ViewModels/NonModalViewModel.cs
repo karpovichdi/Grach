@@ -22,7 +22,7 @@ namespace Grach.ViewModels
                INavigationService navigationService,
                IDialogService dialogService,
                ILoggingServiceProvider logger)
-            : base(navigationService, dialogService, logger) 
+            : base(navigationService, dialogService, logger, commandResolver) 
         {
             NavigateToNavigationPageCommand = new Command(NavigateToNavigationPage);
             NavigateBackCommand = new Command(NavigateBack);

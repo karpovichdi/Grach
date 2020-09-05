@@ -11,21 +11,6 @@
              NavigationPage.HasBackButton="False"
              x:Class="Grach.Pages.LoginView"
              BackgroundColor="#242424">
-    <!-- <StackLayout HorizontalOptions="CenterAndExpand" -->
-    <!--              VerticalOptions="CenterAndExpand" -->
-    <!--              IsVisible="False"> -->
-    <!--     <Button HorizontalOptions="Center" -->
-    <!--             VerticalOptions="Center" -->
-    <!--             Margin="0,0,0,20" -->
-    <!--             Text="Next" -->
-    <!--             BackgroundColor="AliceBlue" -->
-    <!--             Command="{Binding NavigateToNextModalCommand}"/> -->
-    <!--     <Button HorizontalOptions="Center" -->
-    <!--             VerticalOptions="Center" -->
-    <!--             Text="Back" -->
-    <!--             BackgroundColor="AliceBlue" -->
-    <!--             Command="{Binding NavigateBackCommand}"/> -->
-    <!-- </StackLayout> -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -78,19 +63,40 @@
                        FontAttributes="Bold"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
-                <BoxView Grid.Row="0"
-                         Grid.Column="3"
-                         WidthRequest="60"
-                         HeightRequest="60"
-                         CornerRadius="10,10,10,10"
-                         BackgroundColor="#a3a8e2"/>
-                <Label Grid.Row="0"
-                       Grid.Column="3"
-                       Text="G"
-                       FontSize="45"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                
+                <Grid Grid.Row="0"
+                      Grid.Column="3"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      BackgroundColor="#a3a8e2">
+                    <Grid.Effects>
+                        <effects:RoundedLayoutEffect HasShadow="False"
+                                                     ShadowRadius="0"
+                                                     ShadowColor="Black"
+                                                     HasBorder="False"
+                                                     BorderColor="White"
+                                                     BorderWidth="1"
+                                                     CornerRadius="10"/>
+                    </Grid.Effects>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoginViaGoogleCommand}"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="G"
+                           FontSize="45"
+                           FontAttributes="Bold"
+                           WidthRequest="60"
+                           HeightRequest="60"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"/>
+                </Grid>
+                    
+                
                 <BoxView Grid.Row="0"
                          Grid.Column="5"
                          WidthRequest="60"
@@ -105,9 +111,6 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
             </Grid>
-            <Button Text="Test"
-                    CornerRadius="4"
-                    Command="{Binding LoginViaGoogleCommand}"/>
         </StackLayout>
         
         <StackLayout Grid.Row="0"
@@ -119,7 +122,6 @@
                    VerticalTextAlignment="Center"
                    Margin="20,0,20,0"
                    TextColor="White"
-                   InputTransparent="True"
                    FontSize="14">
                 <Label.FormattedText>
                     <FormattedString>
@@ -127,11 +129,17 @@
                               FontSize="14"/>
                         <Span Text="протестировать" 
                               TextDecorations="Underline"
-                              TextColor="#4e8395"/>
+                              TextColor="#4e8395">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UnauthorizedInputCommand}"
+                                                      CommandParameter="Yo"/>
+                            </Span.GestureRecognizers>
+                        </Span>
                         <Span Text=" наше приложение без авторизации." 
                               FontSize="14"/>
                     </FormattedString>
                 </Label.FormattedText>
+                
             </Label>
             
             <Label HorizontalOptions="Center"
@@ -140,7 +148,6 @@
                    VerticalTextAlignment="Center" 
                    Margin="20,13,20,30"
                    TextColor="White"
-                   InputTransparent="True"
                    Text="Обращаем ваше внимание, что некоторые важные функции приложения будут для вас недоступны."
                    FontSize="14"/>
         </StackLayout>

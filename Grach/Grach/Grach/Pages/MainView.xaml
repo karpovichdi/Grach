@@ -7,7 +7,10 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             xmlns:pages="clr-namespace:Grach.Pages;assembly=Grach"
             mc:Ignorable="d"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
             Title="Tabbed View"
+            ios:Page.UseSafeArea="true"
+            NavigationPage.HasNavigationBar="False"
             android:TabbedPage.ToolbarPlacement="Bottom"
             x:Class="Grach.Pages.MainView">
     <TabbedPage.Children>

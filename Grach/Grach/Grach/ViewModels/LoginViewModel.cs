@@ -21,7 +21,7 @@ namespace Grach.ViewModels
 
         public ICommand NavigateToNextModalCommand { get; }
         public ICommand NavigateBackCommand { get; }
-        
+        public ICommand UnauthorizedInputCommand { get; set; }
         public ICommand LoginViaGoogleCommand { get; }
         
         private IAsyncResultCommand<CancellationToken, string> ApiAuthCommand { get; }
@@ -31,11 +31,12 @@ namespace Grach.ViewModels
                               INavigationService navigationService,
                               IDialogService dialogService,
                               ILoggingServiceProvider logger)
-            : base(navigationService, dialogService, logger)
+            : base(navigationService, dialogService, logger, commandResolver)
         {
             NavigateToNextModalCommand = new Command(NavigateToNextModal);
             NavigateBackCommand = new Command(NavigateBack);
             LoginViaGoogleCommand = commandResolver.AsyncCommand(LoginViaGoogleCommandHandler, true);
+            UnauthorizedInputCommand = new Command(UnauthorizedInputCommandHandler);
             
             ApiAuthCommand = commandResolver.AsyncResultCommand<CancellationToken, string>(
                 execute: parameters => testApi.Authorize(parameters), 
@@ -91,8 +92,11 @@ namespace Grach.ViewModels
             //     ExecuteAsync(_cancellationTokenSource.Token);
 
             Device.OpenUri(new Uri("https://meetingservice.herokuapp.com/showuser"));
-
-            //return NavigationService.NavigateAsync($"/{NavigationKeys.NavigationPageKey}/{NavigationKeys.MainViewKey}");
+        }
+        
+        private void UnauthorizedInputCommandHandler(object o)
+        {
+            NavigationService.NavigateAsync($"/{NavigationKeys.NavigationPageKey}/{NavigationKeys.MainViewKey}");
         }
     }
 }

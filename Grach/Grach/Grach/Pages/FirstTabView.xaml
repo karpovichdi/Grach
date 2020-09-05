@@ -5,42 +5,66 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:Grach.Controls;assembly=Grach"
+             xmlns:viewModels="clr-namespace:Grach.ViewModels;assembly=Grach"
+             xmlns:effects="clr-namespace:Grach.Effects;assembly=Grach"
              mc:Ignorable="d"
-             BackgroundColor="LightGreen"
+             BackgroundColor="#242424"
              Title="First"
              NavigationPage.HasNavigationBar="False"
              x:Class="Grach.Pages.FirstTabView">
     <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding Indexes}"
-                        Margin="5,10,5,0"
-                        ItemSizingStrategy="MeasureAllItems">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"
-                                 HorizontalItemSpacing="10"
-                                 VerticalItemSpacing="0"
-                                 Span="2"/>
-            </CollectionView.ItemsLayout>
-
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <controls:SquareView>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5"/>
-                            </Grid.RowDefinitions>
-
-                            <BoxView BackgroundColor="Orange"/>
-                            <Label HorizontalOptions="CenterAndExpand"
-                                   VerticalOptions="CenterAndExpand"
-                                   Text="Text"
-                                   TextColor="Black"/>
-                        </Grid>
-                    </controls:SquareView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
-        </CollectionView>
+        <CollectionView Grid.Row="1"
+                    Margin="15,15,15,0"
+                    ItemsSource="{Binding Meetings}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Margin="0,0,0,0"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center">
+                    <Grid x:DataType="viewModels:MeetingViewModel"
+                          BackgroundColor="WhiteSmoke"
+                          VerticalOptions="Center"
+                          Margin="10,10,10,10">
+                        <Grid.Effects>
+                            <effects:RoundedLayoutEffect HasShadow="False"
+                                                         ShadowRadius="0"
+                                                         ShadowColor="Black"
+                                                         HasBorder="False"
+                                                         BorderColor="White"
+                                                         BorderWidth="1"
+                                                         CornerRadius="10"/>
+                        </Grid.Effects>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image HeightRequest="80"
+                               WidthRequest="80"
+                               Margin="10,10,10,10"
+                               VerticalOptions="CenterAndExpand"
+                               BackgroundColor="Bisque"/>
+                        <StackLayout Grid.Column="1"
+                                     Spacing="0"
+                                     VerticalOptions="Center">
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"/>
+                            <Label Text="{Binding Author}"
+                                   FontSize="12"/>
+                            <Label Text="{Binding Distance}"
+                                   FontSize="12"/>
+                            <Label Text="сейчас здесь: "
+                                   FontSize="12"/>
+                        </StackLayout>
+                    
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
     </ContentPage.Content>
 
 </ContentPage>
