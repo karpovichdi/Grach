@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Grach.Core.Interfaces;
 using Grach.Core.Resources;
 using Grach.Extensions;
+using Grach.Utills.Constants;
 using Prism.AppModel;
 using Prism.Navigation;
 using Prism.Services.Dialogs;
@@ -23,7 +24,7 @@ namespace Grach.ViewModels.Base
         protected INavigationService NavigationService { get; }
         protected ILoggingServiceProvider Logger { get; }
         
-        protected ICommand LogOutCommand { get; }
+        public ICommand LogOutCommand { get; }
 
         public string Title
         {
@@ -69,7 +70,7 @@ namespace Grach.ViewModels.Base
             
         }
 
-        private Task LogoutCommandHandler()
+        protected Task LogoutCommandHandler()
         {
             _cancellationTokenSource = new CancellationTokenSource();
 
@@ -80,7 +81,8 @@ namespace Grach.ViewModels.Base
             //     ExecuteAsync(_cancellationTokenSource.Token);
 
             Device.OpenUri(new Uri("https://meetingservice.herokuapp.com/exit"));
-            
+
+            NavigationService.NavigateAsync($"/{NavigationKeys.ModalViewKey}");            
             return Task.CompletedTask;
         }
     }
