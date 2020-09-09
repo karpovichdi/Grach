@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace Grach.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginView : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public LoginView()
+        public LoginPage()
         {
             InitializeComponent();
         }

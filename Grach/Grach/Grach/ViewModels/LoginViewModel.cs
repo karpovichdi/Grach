@@ -60,7 +60,7 @@ namespace Grach.ViewModels
 
         private void NavigateToNextModal(object obj)
         {
-            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginView)}", null, true);
+            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginPage)}", null, true);
         }
 
         public override void Initialize(INavigationParameters parameters)

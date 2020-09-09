@@ -43,7 +43,7 @@ namespace Grach.ViewModels
 
         private void SwitchTab(object obj)
         {
-            NavigationService.SelectTabAsync(nameof(ThirdTabView));
+            NavigationService.SelectTabAsync(nameof(MeetingsMapPage));
         }
 
         private void NavigateToNavigationPage(object obj)

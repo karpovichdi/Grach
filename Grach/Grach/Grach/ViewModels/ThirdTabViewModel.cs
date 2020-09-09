@@ -45,7 +45,7 @@ namespace Grach.ViewModels
 
         private void NavigateToNavigationPage(object obj)
         {
-            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginView)}", null, true);
+            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginPage)}", null, true);
         }
     }
 }

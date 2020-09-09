@@ -20,15 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\FirstTabView.xaml">
+    <EmbeddedResource Update="Pages\MeetingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\MainView.xaml">
+    <EmbeddedResource Update="Pages\MeetingTabbedPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\ModalView.xaml">
+    <EmbeddedResource Update="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
@@ -36,11 +36,11 @@
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\SecondTabView.xaml">
+    <EmbeddedResource Update="Pages\UserInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\ThirdTabView.xaml">
+    <EmbeddedResource Update="Pages\MeetingsMapPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </EmbeddedResource>
@@ -51,22 +51,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Pages\FirstTabView.xaml.cs">
+    <Compile Update="Pages\MeetingsPage.xaml.cs">
       <DependentUpon>FirstTabView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\MainView.xaml.cs">
+    <Compile Update="Pages\MeetingTabbedPage.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\ModalView.xaml.cs">
+    <Compile Update="Pages\LoginPage.xaml.cs">
       <DependentUpon>ModalView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\NonModalView.xaml.cs">
       <DependentUpon>NonModalView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\SecondTabView.xaml.cs">
+    <Compile Update="Pages\UserInfoPage.xaml.cs">
       <DependentUpon>SecondTabView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Pages\ThirdTabView.xaml.cs">
+    <Compile Update="Pages\MeetingsMapPage.xaml.cs">
       <DependentUpon>ThirdTabView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Core\Resources\Localization.Designer.cs">
@@ -74,5 +74,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Localization.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls" />
   </ItemGroup>
 </Project>

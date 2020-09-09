@@ -9,7 +9,7 @@
              Title="Modal View"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
-             x:Class="Grach.Pages.LoginView"
+             x:Class="Grach.Pages.LoginPage"
              BackgroundColor="#242424">
     <Grid>
         <Grid.RowDefinitions>

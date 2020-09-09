@@ -12,11 +12,11 @@
             ios:Page.UseSafeArea="true"
             NavigationPage.HasNavigationBar="False"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            x:Class="Grach.Pages.MainView">
+            x:Class="Grach.Pages.MeetingTabbedPage">
     <TabbedPage.Children>
-        <pages:FirstTabView />
-        <pages:SecondTabView />
-        <pages:ThirdTabView />
+        <pages:MeetingsPage />
+        <pages:UserInfoPage />
+        <pages:MeetingsMapPage />
     </TabbedPage.Children>
     
 </TabbedPage>

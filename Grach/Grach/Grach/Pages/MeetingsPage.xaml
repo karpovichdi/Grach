@@ -4,14 +4,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:Grach.Controls;assembly=Grach"
              xmlns:viewModels="clr-namespace:Grach.ViewModels;assembly=Grach"
              xmlns:effects="clr-namespace:Grach.Effects;assembly=Grach"
              mc:Ignorable="d"
              BackgroundColor="#242424"
              Title="First"
              NavigationPage.HasNavigationBar="False"
-             x:Class="Grach.Pages.FirstTabView">
+             x:Class="Grach.Pages.MeetingsPage">
     <ContentPage.Content>
         <CollectionView Grid.Row="1"
                     Margin="15,15,15,0"

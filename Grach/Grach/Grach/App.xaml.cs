@@ -30,7 +30,7 @@ namespace Grach
             _logger = Container.Resolve<ILoggingServiceProvider>();
             
             this.Log();
-            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginView)}");
+            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

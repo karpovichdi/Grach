@@ -37,12 +37,12 @@ namespace Grach.Services
         private static void RegisterViewModels(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<Xamarin.Forms.NavigationPage>(NavigationKeys.NavigationPageKey);
-            containerRegistry.RegisterForNavigation<FirstTabView, FirstTabViewModel>(NavigationKeys.FirstTabViewKey);
-            containerRegistry.RegisterForNavigation<SecondTabView, SecondTabViewModel>(NavigationKeys.SecondTabViewKey);
-            containerRegistry.RegisterForNavigation<ThirdTabView, ThirdTabViewModel>(NavigationKeys.ThirdTabViewKey);
+            containerRegistry.RegisterForNavigation<MeetingsPage, FirstTabViewModel>(NavigationKeys.FirstTabViewKey);
+            containerRegistry.RegisterForNavigation<UserInfoPage, SecondTabViewModel>(NavigationKeys.SecondTabViewKey);
+            containerRegistry.RegisterForNavigation<MeetingsMapPage, ThirdTabViewModel>(NavigationKeys.ThirdTabViewKey);
             containerRegistry.RegisterForNavigation<NonModalView, NonModalViewModel>(NavigationKeys.NonModalViewKey);
-            containerRegistry.RegisterForNavigation<LoginView, LoginViewModel>(NavigationKeys.ModalViewKey);
-            containerRegistry.RegisterForNavigation<MainView, MainViewModel>(NavigationKeys.MainViewKey);
+            containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>(NavigationKeys.ModalViewKey);
+            containerRegistry.RegisterForNavigation<MeetingTabbedPage, MainViewModel>(NavigationKeys.MainViewKey);
         }
         
          private static void RegisterServices(IContainerRegistry containerRegistry)
