@@ -15,10 +15,6 @@
             <Color x:Key="violet">#a3a8e2</Color>
             <Color x:Key="hyperlinkColor">#4e8395</Color>
 
-            
-            
-            
-            
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />

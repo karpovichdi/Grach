@@ -9,16 +9,16 @@
         </ResourceDictionary>
     </Grid.Resources>
     <Grid.Effects>
-         <effects:RoundedLayoutEffect HasShadow="False"
+         <effects:RoundedLayoutEffect HasShadow="True"
                                       HasBorder="False"
-                                      ShadowRadius="0"
+                                      ShadowRadius="2"
                                       BorderWidth="1"
                                       CornerRadius="10"
                                       ShadowColor="{StaticResource defaultBlack}"
-                                      BorderColor="{StaticResource defaultWhite}"/>
+                                      BorderColor="{StaticResource defaultBlack}"/>
     </Grid.Effects>
     <Grid.RowDefinitions>
-        <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto"/>
@@ -26,11 +26,20 @@
     <Grid.GestureRecognizers>
         <TapGestureRecognizer Tapped="ButtonTapped"/>
     </Grid.GestureRecognizers>
-    <Label x:Name="label"
-           VerticalOptions="Center"
-           WidthRequest="{StaticResource buttonSize}"
-           HeightRequest="{StaticResource buttonSize}"
-           HorizontalTextAlignment="Center"
-           FontSize="45"
-           FontAttributes="Bold"/>
+    <Grid Margin="0,0,0,2"
+          BackgroundColor="{StaticResource violet}">
+        <Label x:Name="label"
+               VerticalOptions="Center"
+               WidthRequest="{StaticResource buttonSize}"
+               HeightRequest="{StaticResource buttonSize}"
+               HorizontalTextAlignment="Center"
+               FontSize="45"
+               FontAttributes="Bold"/>
+        <Grid.Effects>
+            <effects:RoundedLayoutEffect HasShadow="False"
+                                         HasBorder="False"
+                                         CornerRadius="10"/>
+        </Grid.Effects>
+    </Grid>
+    
 </Grid>
