@@ -9,6 +9,16 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="darkGray">#242424</Color>
+            <Color x:Key="defaultWhite">White</Color>
+            <Color x:Key="defaultBlack">Black</Color>
+            <Color x:Key="violet">#a3a8e2</Color>
+            <Color x:Key="hyperlinkColor">#4e8395</Color>
+
+            
+            
+            
+            
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />

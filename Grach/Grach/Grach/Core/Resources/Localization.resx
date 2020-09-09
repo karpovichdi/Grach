@@ -121,4 +121,19 @@
     <data name="ResourceTestString" xml:space="preserve">
       <value>Localized string :)</value>
     </data>
+    <data name="LoginOfflineMessage" xml:space="preserve">
+      <value>Обращаем ваше внимание, что некоторые важные функции приложения будут для вас недоступны.</value>
+    </data>
+    <data name="OurAppWithoutAuth" xml:space="preserve">
+      <value> наше приложение без авторизации.</value>
+    </data>
+    <data name="YouCan" xml:space="preserve">
+      <value>Вы можете </value>
+    </data>
+    <data name="ToTest" xml:space="preserve">
+      <value>протестировать</value>
+    </data>
+    <data name="GoIn" xml:space="preserve">
+      <value>Войти</value>
+    </data>    
 </root>

@@ -7,8 +7,8 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
              mc:Ignorable="d"
-             BackgroundColor="LightPink"
              Title="Third"
+             BackgroundColor="#242424"
              NavigationPage.HasNavigationBar="False"
              x:Class="Grach.Pages.MeetingsMapPage">
     <ContentPage.Content>

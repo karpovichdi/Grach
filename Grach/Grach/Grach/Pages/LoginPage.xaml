@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:effects="clr-namespace:Grach.Effects;assembly=Grach"
-             mc:Ignorable="d"
-             Title="Modal View"
+             xmlns:resources="clr-namespace:Grach.Core.Resources;assembly=Grach"
+             xmlns:buttons="clr-namespace:Grach.Controls.Buttons;assembly=Grach"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
+             mc:Ignorable="d"
              x:Class="Grach.Pages.LoginPage"
-             BackgroundColor="#242424">
+             BackgroundColor="{StaticResource darkGray}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -21,21 +21,21 @@
         
         <StackLayout HorizontalOptions="Center"
                      VerticalOptions="Center"
-                     BackgroundColor="White">
+                     BackgroundColor="{StaticResource defaultWhite}">
             <StackLayout.Effects>
                 <effects:RoundedLayoutEffect HasShadow="True"
-                                             ShadowRadius="4"
-                                             ShadowColor="Black"
                                              HasBorder="True"
-                                             BorderColor="White"
+                                             ShadowRadius="4"
                                              BorderWidth="1"
-                                             CornerRadius="15"/>
+                                             CornerRadius="15"
+                                             ShadowColor="{StaticResource defaultBlack}"
+                                             BorderColor="{StaticResource defaultWhite}"/>
             </StackLayout.Effects>
-            <Label Text="Войти"
+            <Label Text="{x:Static resources:Localization.GoIn}"
                    FontSize="19"
                    Margin="0,10,0,0"
                    HorizontalTextAlignment="Center"
-                   TextColor="Black"/>
+                   TextColor="{StaticResource defaultBlack}"/>
             <Grid Margin="0,10,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -50,66 +50,26 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
-                <BoxView Grid.Row="0"
-                         Grid.Column="1"
-                         WidthRequest="60"
-                         HeightRequest="60"
-                         CornerRadius="10,10,10,10"
-                         BackgroundColor="#a3a8e2"/>
-                <Label Grid.Row="0"
-                       Grid.Column="1"
-                       Text="V"
-                       FontSize="45"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
-                
-                <Grid Grid.Row="0"
-                      Grid.Column="3"
-                      HorizontalOptions="Center"
-                      VerticalOptions="Center"
-                      BackgroundColor="#a3a8e2">
-                    <Grid.Effects>
-                        <effects:RoundedLayoutEffect HasShadow="False"
-                                                     ShadowRadius="0"
-                                                     ShadowColor="Black"
-                                                     HasBorder="False"
-                                                     BorderColor="White"
-                                                     BorderWidth="1"
-                                                     CornerRadius="10"/>
-                    </Grid.Effects>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding LoginViaGoogleCommand}"/>
-                    </Grid.GestureRecognizers>
-                    <Label Text="G"
-                           FontSize="45"
-                           FontAttributes="Bold"
-                           WidthRequest="60"
-                           HeightRequest="60"
-                           HorizontalTextAlignment="Center"
-                           VerticalOptions="Center"/>
-                </Grid>
-                    
-                
-                <BoxView Grid.Row="0"
-                         Grid.Column="5"
-                         WidthRequest="60"
-                         HeightRequest="60"
-                         CornerRadius="10,10,10,10"
-                         BackgroundColor="#a3a8e2"/>
-                <Label Grid.Row="0"
-                       Grid.Column="5"
-                       Text="T"
-                       FontSize="45"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                <buttons:LoginButton Grid.Row="0"
+                                     Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Text="V"
+                                     Command="{Binding LoginViaGoogleCommand}"
+                                     BackgroundColor="{StaticResource violet}"/>
+                <buttons:LoginButton Grid.Row="0"
+                                     Grid.Column="3"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Text="G"
+                                     Command="{Binding LoginViaGoogleCommand}"
+                                     BackgroundColor="{StaticResource violet}"/>
+                <buttons:LoginButton Grid.Row="0"
+                                     Grid.Column="5"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Text="T"
+                                     BackgroundColor="{StaticResource violet}"/>
             </Grid>
         </StackLayout>
         
@@ -121,21 +81,21 @@
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Margin="20,0,20,0"
-                   TextColor="White"
+                   TextColor="{StaticResource defaultWhite}"
                    FontSize="14">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Вы можете "  
+                        <Span Text="{x:Static resources:Localization.YouCan}"
                               FontSize="14"/>
-                        <Span Text="протестировать" 
+                        <Span Text="{x:Static resources:Localization.ToTest}" 
                               TextDecorations="Underline"
-                              TextColor="#4e8395">
+                              TextColor="{StaticResource hyperlinkColor}">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding UnauthorizedInputCommand}"
                                                       CommandParameter="Yo"/>
                             </Span.GestureRecognizers>
                         </Span>
-                        <Span Text=" наше приложение без авторизации." 
+                        <Span Text="{x:Static resources:Localization.OurAppWithoutAuth}" 
                               FontSize="14"/>
                     </FormattedString>
                 </Label.FormattedText>
@@ -147,8 +107,8 @@
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" 
                    Margin="20,13,20,30"
-                   TextColor="White"
-                   Text="Обращаем ваше внимание, что некоторые важные функции приложения будут для вас недоступны."
+                   TextColor="{StaticResource defaultWhite}"
+                   Text="{x:Static resources:Localization.LoginOfflineMessage}"
                    FontSize="14"/>
         </StackLayout>
         

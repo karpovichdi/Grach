@@ -61,11 +61,56 @@ namespace Grach.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Войти.
+        /// </summary>
+        internal static string GoIn {
+            get {
+                return ResourceManager.GetString("GoIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обращаем ваше внимание, что некоторые важные функции приложения будут для вас недоступны..
+        /// </summary>
+        internal static string LoginOfflineMessage {
+            get {
+                return ResourceManager.GetString("LoginOfflineMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  наше приложение без авторизации..
+        /// </summary>
+        internal static string OurAppWithoutAuth {
+            get {
+                return ResourceManager.GetString("OurAppWithoutAuth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Localized string :).
         /// </summary>
         internal static string ResourceTestString {
             get {
                 return ResourceManager.GetString("ResourceTestString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to протестировать.
+        /// </summary>
+        internal static string ToTest {
+            get {
+                return ResourceManager.GetString("ToTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы можете .
+        /// </summary>
+        internal static string YouCan {
+            get {
+                return ResourceManager.GetString("YouCan", resourceCulture);
             }
         }
     }
