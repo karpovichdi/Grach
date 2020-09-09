@@ -6,7 +6,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              BackgroundColor="#242424"
-             Title="Second"
              NavigationPage.HasNavigationBar="False"
              x:Class="Grach.Pages.UserInfoPage">
     <ContentPage.Content>

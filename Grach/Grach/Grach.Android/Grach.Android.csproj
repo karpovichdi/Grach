@@ -75,6 +75,8 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\location.png" />
+    <AndroidResource Include="Resources\drawable\menu4.png" />
     <AndroidResource Include="Resources\layout\Tabbar.xml" />
     <AndroidResource Include="Resources\layout\Toolbar.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -93,9 +95,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Grach\Grach.csproj">
       <Project>{51F47B4B-E729-4B6E-8AB8-6491BE9C0538}</Project>
       <Name>Grach</Name>
@@ -103,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\dsicons.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers" />
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
