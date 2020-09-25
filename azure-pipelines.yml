@@ -28,7 +28,7 @@ steps:
 - script: |
     echo ${{ variables.one }} # outputs initialValue
     echo $(one) # outputs secondValue
-    displayName: Second variable pass
+  displayName: Second variable pass
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
