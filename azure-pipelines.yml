@@ -19,14 +19,15 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-  echo ${{ variables.one }} # outputs initialValue
-      echo $(one)
-    displayName: First variable pass
-  - bash: echo '##vso[task.setvariable variable=one]secondValue'
-    displayName: Set new variable value
-  - script: |
-      echo ${{ variables.one }} # outputs initialValue
-      echo $(one) # outputs secondValue
+    echo ${{ variables.one }} # outputs initialValue
+    echo $(one)
+  displayName: First variable pass
+- bash: echo '##vso[task.setvariable variable=one]secondValue'
+  displayName: Set new variable value
+  
+- script: |
+    echo ${{ variables.one }} # outputs initialValue
+    echo $(one) # outputs secondValue
     displayName: Second variable pass
 
 - script: |
@@ -34,8 +35,5 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
   
-
 - script: echo Hello, world2!
   displayName: 'Run a one-line script'
-  
-  
