@@ -21,13 +21,5 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk'
-    apksign: true
-    apksignerKeystoreFile: 'grach.keystore'
-    apksignerKeystorePassword: $(keystore.password)
-    apksignerKeystoreAlias: $(key.alias)
-    apksignerKeyPassword: $(key.password)
-    apksignerArguments: --out $(outputDirectory)/app.release.apk
-    zipalign: true
+- script: echo Hello, world2!
+displayName: 'Run a one-line script'
