@@ -8,6 +8,8 @@ trigger:
 
 variables:
 - group: android-build-variables
+- name: one
+  value: initialValue 
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -16,13 +18,16 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- task: AndroidSigning@3
-  inputs:
-      apkFiles: '**/*.apk'
-      apksignerKeystoreFile: '**/*.keystore'
-      apksignerKeystorePassword: 'Karpovich9'
-      apksignerKeystoreAlias: 'Grach'
-      apksignerKeyPassword: 'Karpovich9'
+- script: |
+  echo ${{ variables.one }} # outputs initialValue
+      echo $(one)
+    displayName: First variable pass
+  - bash: echo '##vso[task.setvariable variable=one]secondValue'
+    displayName: Set new variable value
+  - script: |
+      echo ${{ variables.one }} # outputs initialValue
+      echo $(one) # outputs secondValue
+    displayName: Second variable pass
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
