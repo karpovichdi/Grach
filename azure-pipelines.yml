@@ -16,10 +16,21 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: AndroidSigning@3
+  inputs:
+      apkFiles: '**/*.apk'
+      apksignerKeystoreFile: '**/Grach.keystore'
+      apksignerKeystorePassword: 'Karpovich9'
+      apksignerKeystoreAlias: 'Grach'
+      apksignerKeyPassword: 'Karpovich9'
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+  
 
 - script: echo Hello, world2!
   displayName: 'Run a one-line script'
+  
+  
