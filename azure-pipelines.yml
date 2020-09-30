@@ -38,5 +38,5 @@ steps:
 - script: echo Hello, world2!
   displayName: 'Run a one-line script'
   
-- script: echo $(one)  # prints "someValue"
-  displayName: Variable is $(one)  # display name is "Variable is $(myInner)"
+- script: echo $(key.alias)  # prints "someValue"
+  displayName: Variable is $(key.alias)  # display name is "Variable is $(myInner)"
