@@ -12,31 +12,22 @@ variables:
 - group: android-build-variables
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'macos-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+steps:  
 
-- script: |
-    echo ${{ variables.one }} # outputs initialValue
-    echo $(one)
-  displayName: First variable pass
-- bash: echo '##vso[task.setvariable variable=one]secondValue'
-  displayName: Set new variable value
-  
-- script: |
-    echo ${{ variables.one }} # outputs initialValue
-    echo $(one) # outputs secondValue
-  displayName: Second variable pass
+- task: NuGetToolInstaller@1
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '**/*.sln'
   
-- script: echo Hello, world2!
-  displayName: 'Run a one-line script'
-  
+- task: XamarinAndroid@1
+  inputs:
+    projectFile: '**/*droid*.csproj'
+    outputDirectory: '$(outputDirectory)'
+    configuration: '$(buildConfiguration)'
+
 - script: echo $(key.alias)  # prints "someValue"
   displayName: Variable is $(key.alias)  # display name is "Variable is $(myInner)"
+  
