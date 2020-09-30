@@ -41,7 +41,7 @@ steps:
 
 - task: AppCenterDistribute@3
   inputs:
-    serverEndpoint: 'VSAC'
+    serverEndpoint: 'GrachAndroidVSAC'
     appSlug: '$(appSlug)'
     appFile: '$(outputDirectory)/app.release.apk'
     releaseNotesOption: 'input'
