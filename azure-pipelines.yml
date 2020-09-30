@@ -32,7 +32,7 @@ steps:
   inputs:
     apkFiles: '**/*.apk' 
     apksign: true
-    apksignerKeystoreFile: 'Grach.jks'
+    apksignerKeystoreFile: 'Grach.keystore'
     apksignerKeystorePassword: $(keystore.password)
     apksignerKeystoreAlias: $(key.alias)
     apksignerKeyPassword: $(key.password)
