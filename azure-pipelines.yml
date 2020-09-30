@@ -28,6 +28,17 @@ steps:
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '**/*.apk' 
+    apksign: true
+    apksignerKeystoreFile: 'Grach.jks'
+    apksignerKeystorePassword: $(keystore.password)
+    apksignerKeystoreAlias: $(key.alias)
+    apksignerKeyPassword: $(key.password)
+    apksignerArguments: --out $(outputDirectory)/app.release.apk
+    zipalign: true
+
 - script: echo $(key.alias)  # prints "someValue"
   displayName: Variable is $(key.alias)  # display name is "Variable is $(myInner)"
   
