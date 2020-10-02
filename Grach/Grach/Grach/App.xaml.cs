@@ -47,7 +47,5 @@ namespace Grach
                             "ios=bc8dc21e-37e1-435c-ac44-128eddda000c;",
                 typeof(Analytics), typeof(Crashes));
         }
-        
-        // darou
     }
 }
