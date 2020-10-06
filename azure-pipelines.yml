@@ -20,32 +20,32 @@ steps:
   inputs:
     restoreSolution: '**/*.sln'
   
-- task: XamarinAndroid@1
-  inputs:
-    projectFile: '**/*droid*.csproj'
-    outputDirectory: '$(outputDirectory)'
-    configuration: '$(buildConfiguration)'
-
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk' 
-    apksign: true
-    apksignerKeystoreFile: 'Grach.keystore'
-    apksignerKeystorePassword: $(keystore.password)
-    apksignerKeystoreAlias: $(key.alias)
-    apksignerKeyPassword: $(key.password)
-    apksignerArguments: --out $(outputDirectory)/app.release.apk
-    zipalign: true
-
-- task: AppCenterDistribute@3
-  inputs:
-    serverEndpoint: 'GrachVSAC'
-    appSlug: '$(appSlug)'
-    appFile: '$(outputDirectory)/app.release.apk'
-    releaseNotesOption: 'input'
-    releaseNotesInput: 'New version'
-    destinationType: 'groups'
-    distributionGroupId: '$(distributionGroupId)'
+#- task: XamarinAndroid@1
+#  inputs:
+#    projectFile: '**/*droid*.csproj'
+#    outputDirectory: '$(outputDirectory)'
+#    configuration: '$(buildConfiguration)'
+#
+#- task: AndroidSigning@3
+#  inputs:
+#    apkFiles: '**/*.apk'
+#    apksign: true
+#    apksignerKeystoreFile: 'Grach.keystore'
+#    apksignerKeystorePassword: $(keystore.password)
+#    apksignerKeystoreAlias: $(key.alias)
+#    apksignerKeyPassword: $(key.password)
+#    apksignerArguments: --out $(outputDirectory)/app.release.apk
+#    zipalign: true
+#
+#- task: AppCenterDistribute@3
+#  inputs:
+#    serverEndpoint: 'GrachVSAC'
+#    appSlug: '$(appSlug)'
+#    appFile: '$(outputDirectory)/app.release.apk'
+#    releaseNotesOption: 'input'
+#    releaseNotesInput: 'New version'
+#    destinationType: 'groups'
+#    distributionGroupId: '$(distributionGroupId)'
 
 - task: XamarinAndroid@1
   inputs:
