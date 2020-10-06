@@ -25,7 +25,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid>
-        <Grid HorizontalOptions="Center"
+        <Grid x:Name="contentGrid"
+              HorizontalOptions="Center"
               VerticalOptions="Center"
               BackgroundColor="{StaticResource defaultWhite}">
             <Grid.RowDefinitions>

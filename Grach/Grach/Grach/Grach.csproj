@@ -4,6 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <LangVersion>latest</LangVersion>
+    <Configurations>Debug;Release;Release2</Configurations>
+    <Platforms>AnyCPU;iPhone;iPhoneSimulator</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

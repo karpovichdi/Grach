@@ -33,6 +33,7 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>RELEASE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
@@ -57,11 +58,29 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>RELEASE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release2|AnyCPU' ">
+    <OutputPath>bin\Release2\</OutputPath>
+    <DefineConstants>RELEASE2</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release2|iPhone' ">
+    <OutputPath>bin\iPhone\Release2\</OutputPath>
+    <PlatformTarget>iPhone</PlatformTarget>
+    <DefineConstants>RELEASE2</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release2|iPhoneSimulator' ">
+    <OutputPath>bin\iPhoneSimulator\Release2\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DefineConstants>RELEASE2</DefineConstants>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Dependencies\IosDependenciesInitializer.cs" />
