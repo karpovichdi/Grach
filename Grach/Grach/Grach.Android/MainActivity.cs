@@ -78,6 +78,10 @@ namespace Grach.Droid
 #if TEST
             CompilerFlagHelper.CompilerDirectives |= CompilerDirectives.TEST;
 #endif
+            
+#if RELEASE2
+            CompilerFlagHelper.CompilerDirectives |= CompilerDirectives.RELEASE2;
+#endif
         }
 
         private void SetResources()

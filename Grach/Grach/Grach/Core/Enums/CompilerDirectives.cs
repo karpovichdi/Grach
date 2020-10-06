@@ -10,5 +10,6 @@ namespace Grach.Core.Enums
         RELEASE = 4,
         ENABLE_APPCENTERLOGGER = 8,
         TEST = 16,
+        RELEASE2 = 32
     }
 }
