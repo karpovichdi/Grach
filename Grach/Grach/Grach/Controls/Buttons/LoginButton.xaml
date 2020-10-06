@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:effects="clr-namespace:Grach.Effects;assembly=Grach"
+      x:Class="Grach.Controls.Buttons.LoginButton">
+    <Grid.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="buttonSize">60</x:Double>
+        </ResourceDictionary>
+    </Grid.Resources>
+    <Grid.Effects>
+         <effects:RoundedLayoutEffect HasShadow="True"
+                                      HasBorder="False"
+                                      ShadowRadius="2"
+                                      BorderWidth="1"
+                                      CornerRadius="10"
+                                      ShadowColor="{StaticResource defaultBlack}"
+                                      BorderColor="{StaticResource defaultBlack}"/>
+    </Grid.Effects>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ButtonTapped"/>
+    </Grid.GestureRecognizers>
+    <Grid Margin="0,0,0,2"
+          BackgroundColor="{StaticResource violet}">
+        <Label x:Name="label"
+               VerticalOptions="Center"
+               WidthRequest="{StaticResource buttonSize}"
+               HeightRequest="{StaticResource buttonSize}"
+               HorizontalTextAlignment="Center"
+               FontSize="45"
+               FontAttributes="Bold"/>
+        <Grid.Effects>
+            <effects:RoundedLayoutEffect HasShadow="False"
+                                         HasBorder="False"
+                                         CornerRadius="10"/>
+        </Grid.Effects>
+    </Grid>
+    
+</Grid>

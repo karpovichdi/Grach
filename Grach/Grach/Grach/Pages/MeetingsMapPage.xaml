@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             mc:Ignorable="d"
+             BackgroundColor="#242424"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Grach.Pages.MeetingsMapPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Button WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Modal Navigation"
+                    BackgroundColor="AliceBlue"
+                    Command="{Binding NavigateToNavigationPageCommand}"/>
+            <Button WidthRequest="250"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="LogOut"
+                    BackgroundColor="AliceBlue"
+                    Command="{Binding LogOutCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

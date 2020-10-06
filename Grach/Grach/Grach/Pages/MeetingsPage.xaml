@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Grach.ViewModels;assembly=Grach"
+             xmlns:effects="clr-namespace:Grach.Effects;assembly=Grach"
+             mc:Ignorable="d"
+             BackgroundColor="#242424"
+             NavigationPage.HasNavigationBar="False"
+             IconImageSource="location.png"
+             
+             x:Class="Grach.Pages.MeetingsPage">
+    <ContentPage.Content>
+        <CollectionView Grid.Row="1"
+                    Margin="15,15,15,0"
+                    ItemsSource="{Binding Meetings}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Margin="0,0,0,0"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center">
+                    <Grid x:DataType="viewModels:MeetingViewModel"
+                          BackgroundColor="WhiteSmoke"
+                          VerticalOptions="Center"
+                          Margin="10,10,10,10">
+                        <Grid.Effects>
+                            <effects:RoundedLayoutEffect HasShadow="False"
+                                                         ShadowRadius="0"
+                                                         ShadowColor="Black"
+                                                         HasBorder="False"
+                                                         BorderColor="White"
+                                                         BorderWidth="1"
+                                                         CornerRadius="10"/>
+                        </Grid.Effects>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image HeightRequest="80"
+                               WidthRequest="80"
+                               Margin="10,10,10,10"
+                               VerticalOptions="CenterAndExpand"
+                               BackgroundColor="Bisque"/>
+                        <StackLayout Grid.Column="1"
+                                     Spacing="0"
+                                     VerticalOptions="Center">
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"/>
+                            <Label Text="{Binding Author}"
+                                   FontSize="12"/>
+                            <Label Text="{Binding Distance}"
+                                   FontSize="12"/>
+                            <Label Text="сейчас здесь: "
+                                   FontSize="12"/>
+                        </StackLayout>
+                    
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    </ContentPage.Content>
+
+</ContentPage>

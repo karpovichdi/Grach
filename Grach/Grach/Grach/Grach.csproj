@@ -1,0 +1,93 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <LangVersion>latest</LangVersion>
+    <Configurations>Debug;Release;Release2</Configurations>
+    <Platforms>AnyCPU;iPhone;iPhoneSimulator</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
+    <PackageReference Include="Refit" Version="5.1.67" />
+    <PackageReference Include="SimpleInjector" Version="5.0.3" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\MeetingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\MeetingTabbedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\NonModalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\UserInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\MeetingsMapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Core\Resources\Localization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Buttons\LoginButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\MeetingsPage.xaml.cs">
+      <DependentUpon>FirstTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\MeetingTabbedPage.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\LoginPage.xaml.cs">
+      <DependentUpon>ModalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\NonModalView.xaml.cs">
+      <DependentUpon>NonModalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\UserInfoPage.xaml.cs">
+      <DependentUpon>SecondTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\MeetingsMapPage.xaml.cs">
+      <DependentUpon>ThirdTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Core\Resources\Localization.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Localization.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Buttons\LoginButton.xaml.cs">
+      <DependentUpon>LoginButton.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources" />
+  </ItemGroup>
+</Project>
