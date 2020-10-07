@@ -40,7 +40,7 @@ steps:
 - task: AppCenterDistribute@3
   inputs:
     serverEndpoint: 'GrachVSAC'
-    appSlug: '$(appSlug)'
+    appSlug: '$(appSlug2)'
     appFile: '$(outputDirectory)/app.release.apk'
     releaseNotesOption: 'input'
     releaseNotesInput: 'New version'
