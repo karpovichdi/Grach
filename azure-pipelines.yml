@@ -28,6 +28,7 @@ steps:
       xmldoc = minidom.parse('./Grach/Grach/Grach/Pages/LoginPage.xaml')
       containers = xmldoc.getElementsByTagName("ContentPage")
       first_container = containers[0]
+      print(first_container)
       first_grid = first_container[0]
       print(first_grid.attributes["BackgroundColor"].value)
       first_grid.attributes["BackgroundColor"].value = 'Red'
