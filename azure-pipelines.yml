@@ -31,6 +31,7 @@ steps:
       first_grid = first_container[0]
       print(first_grid.attributes["BackgroundColor"].value)
       first_grid.attributes["BackgroundColor"].value = 'Red'
+      print(first_grid.attributes["BackgroundColor"].value)
   
 - task: XamarinAndroid@1
   inputs:
