@@ -24,7 +24,7 @@ steps:
   inputs:
     scriptSource: 'inline'
     script: |
-      xmldoc = minidom.parse('**/**/**/**/LoginPage.xaml')
+      xmldoc = minidom.parse('**/**/**/**/**/LoginPage.xaml')
       tags = xmldoc.getElementsByTagName("name")
       for item in tags:
         print(item)
