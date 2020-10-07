@@ -25,7 +25,7 @@ steps:
     scriptSource: 'inline'
     script: |
       from xml.dom import minidom
-      xmldoc = minidom.parse('/Users/runner/work/1/s/Grach')
+      xmldoc = minidom.parse('/Users/runner/work/1/s')
       tags = xmldoc.getElementsByTagName("name")
       for item in tags:
         print(item)
