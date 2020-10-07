@@ -24,7 +24,7 @@ steps:
       containers = xmldoc.getElementsByTagName("ContentPage")
       container = containers[0]
       print(container.attributes["BackgroundColor"].value)
-      container.attributes["BackgroundColor"].value = 'Red'
+      container.attributes["BackgroundColor"].value = '"Red"'
       print(container.attributes["BackgroundColor"].value)
       with open('./Grach/Grach/Grach/Pages/LoginPage.xaml', "a+") as f:
         xmldoc.writexml(f)
