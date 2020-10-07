@@ -25,7 +25,7 @@ steps:
     scriptSource: 'inline'
     script: |
       import os
-      dir = [f for f in os.listdir('.')]
+      dir = [f for f in os.listdir('./Grach')]
       for f in dir:
         print(f)
 
