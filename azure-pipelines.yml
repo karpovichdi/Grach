@@ -19,6 +19,15 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '**/*.sln'
+
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: |
+      xmldoc = minidom.parse(xamlfile)
+      tags = xmldoc.getElementsByTagName("name")
+      for item in tags:
+        print(item)
   
 - task: XamarinAndroid@1
   inputs:
