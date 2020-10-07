@@ -26,6 +26,8 @@ steps:
       print(container.attributes["BackgroundColor"].value)
       container.attributes["BackgroundColor"].value = '"Red"'
       print(container.attributes["BackgroundColor"].value)
+      print(xmldoc.toxml())
+
       with open('./Grach/Grach/Grach/Pages/LoginPage.xaml', "a+") as f:
         xmldoc.writexml(f)
   
