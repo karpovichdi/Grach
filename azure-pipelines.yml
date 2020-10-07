@@ -45,7 +45,7 @@ steps:
     releaseNotesOption: 'input'
     releaseNotesInput: 'New version'
     destinationType: 'groups'
-    distributionGroupId: '$(distributionGroupId)'
+    distributionGroupId: '$(distributionGroupId2)'
 
 - task: XamarinAndroid@1
   inputs:
