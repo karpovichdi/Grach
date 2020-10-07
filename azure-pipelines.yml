@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -27,12 +22,10 @@ steps:
       from xml.dom import minidom
       xmldoc = minidom.parse('./Grach/Grach/Grach/Pages/LoginPage.xaml')
       containers = xmldoc.getElementsByTagName("ContentPage")
-      first_container = containers[0]
-      print(first_container)
-      first_grid = first_container[0]
-      print(first_grid.attributes["BackgroundColor"].value)
-      first_grid.attributes["BackgroundColor"].value = 'Red'
-      print(first_grid.attributes["BackgroundColor"].value)
+      container = containers[0]
+      print(container.attributes["BackgroundColor"].value)
+      container.attributes["BackgroundColor"].value = 'Red'
+      print(container.attributes["BackgroundColor"].value)
   
 - task: XamarinAndroid@1
   inputs:
