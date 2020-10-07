@@ -24,10 +24,11 @@ steps:
   inputs:
     scriptSource: 'inline'
     script: |
-      import os
-      dir = [f for f in os.listdir('./Grach/Grach/Grach')]
-      for f in dir:
-        print(f)
+      from xml.dom import minidom
+      xmldoc = minidom.parse('./Grach/Grach/Grach/Pages/LoginPage.xaml')
+      tags = xmldoc.getElementsByTagName("name")
+      for item in tags:
+        print(item)
 
   
 - task: XamarinAndroid@1
