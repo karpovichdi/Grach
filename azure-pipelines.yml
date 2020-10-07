@@ -24,9 +24,11 @@ steps:
   inputs:
     scriptSource: 'inline'
     script: |
-      import os
-      path = os.getcwd()
-      print(path)
+      from xml.dom import minidom
+      xmldoc = minidom.parse('/Users/runner/work/1/s/Grach')
+      tags = xmldoc.getElementsByTagName("name")
+      for item in tags:
+        print(item)
   
 - task: XamarinAndroid@1
   inputs:
