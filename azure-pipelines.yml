@@ -24,10 +24,9 @@ steps:
   inputs:
     scriptSource: 'inline'
     script: |
-      from xml.dom import minidom
-      xmldoc = minidom.parse('**/**/**/**/LoginPage.xaml')
-      tags = xmldoc.getElementsByTagName("name")
-      for item in tags:
+      import os
+      files = [f for f in os.listdir('.') if os.path.isfile(f)]
+      for f in files:
         print(item)
   
 - task: XamarinAndroid@1
