@@ -27,12 +27,10 @@ steps:
       from xml.dom import minidom
       xmldoc = minidom.parse('./Grach/Grach/Grach/Pages/LoginPage.xaml')
       containers = xmldoc.getElementsByTagName("ContentPage")
-      for container in containers:
-        for grid in container:
-          print(grid.attributes["BackgroundColor"].value)
-          grid.attributes["BackgroundColor"].value = 'Red'
-      
-
+      first_container = containers[0]
+      first_grid = first_container[0]
+      print(first_grid.attributes["BackgroundColor"].value)
+      first_grid.attributes["BackgroundColor"].value = 'Red'
   
 - task: XamarinAndroid@1
   inputs:
