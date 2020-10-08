@@ -19,6 +19,8 @@ steps:
   inputs:
     scriptSource: 'inline'
     script: |
+      import os
+            
       from xml.dom import minidom
       xmldoc = minidom.parse('./Grach/Grach/Grach/Pages/LoginPage.xaml')
       containers = xmldoc.getElementsByTagName("ContentPage")
@@ -27,9 +29,14 @@ steps:
       container.attributes["BackgroundColor"].value = '"Red"'
       print(container.attributes["BackgroundColor"].value)
       print(xmldoc.toxml())
-
+      
       with open('./Grach/Grach/Grach/Pages/LoginPage.xaml', "a+") as f:
         xmldoc.writexml(f)
+
+      dir = [f for f in os.listdir('./Grach/Grach/Grach/Pages')]
+      for f in dir:
+        print(f)
+      
   
 - task: XamarinAndroid@1
   inputs:
