@@ -29,10 +29,17 @@ steps:
       container.attributes["BackgroundColor"].value = "Red"
       print(container.attributes["BackgroundColor"].value)
       print(xmldoc.toxml())
-      
-      with open('./Grach/Grach/Grach/Pages/LoginPage.xaml', "r+") as f:
-        xmldoc.writexml(f)
 
+      myfile = open("./Grach/Grach/Grach/Pages/LoginPage.xaml", "r")
+      mylist = myfile.readlines()
+      mytext = ""
+      for items in mylist:
+        mytext = mytext + items +"\n"
+      myfile.close()
+      mytext = mytext[1:]
+      myfile = open("./Grach/Grach/Grach/Pages/LoginPage.xaml", "w")
+      myfile.write(mytext)
+      
       dir = [f for f in os.listdir('./Grach/Grach/Grach/Pages')]
       for f in dir:
         print(f)
