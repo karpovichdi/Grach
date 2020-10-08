@@ -16,47 +16,24 @@ steps:
     restoreSolution: '**/*.sln'
 
 - task: PythonScript@0
-  inputs:
+  inputs: 
     scriptSource: 'inline'
     script: |
       import os
-            
+
       from xml.dom import minidom
-      xmldoc = minidom.parse('./Grach/Grach/Grach/Pages/LoginPage.xaml')
-      containers = xmldoc.getElementsByTagName("ContentPage")
+      pathToDoc = './Grach/Grach/Grach/Pages/LoginPage.xaml'
+
+      xmlFile = minidom.parse(pathToDoc)
+      containers = xmlFile.getElementsByTagName("ContentPage")
       container = containers[0]
-      print(container.attributes["BackgroundColor"].value)
-      container.attributes["BackgroundColor"].value = "Red"
-      print(container.attributes["BackgroundColor"].value)
-      print(xmldoc.toxml())
-
-      # myfile = open("./Grach/Grach/Grach/Pages/LoginPage.xaml", "r")
-      # mylist = myfile.readlines()
-      # mytext = ""
-      # for items in mylist:
-      #   mytext = mytext + items +"\n"
-      # myfile.close()
-      # mytext = mytext[1:]
-      # myfile = open("./Grach/Grach/Grach/Pages/LoginPage.xaml", "w")
-      # myfile.write(mytext)
+      container.attributes["BackgroundColor"].value = $(loginBackgroundColor)
+      print
+      print(xmlFile.toxml())
       
-      myfile = open("./Grach/Grach/Grach/Pages/LoginPage.xaml", "r")
-      mylist = myfile.readlines()
-      mytext = ""
-      for items in mylist:
-        mytext = mytext + items.strip()
-      myfile.close()
-      mytext = mytext[1:]
-      myfile = open("./Grach/Grach/Grach/Pages/LoginPage.xaml", "w")
-      myfile.write(mytext)
+      with open(pathToDoc, "w") as f:
+        xmlFile.writexml(f)
 
-      with open('./Grach/Grach/Grach/Pages/LoginPage.xaml') as e:
-        for line in e:
-          print(line.strip())
-
-    
-      
-  
 - task: XamarinAndroid@1
   inputs:
     projectFile: '**/*droid*.csproj'
