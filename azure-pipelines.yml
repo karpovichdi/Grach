@@ -36,6 +36,10 @@ steps:
       dir = [f for f in os.listdir('./Grach/Grach/Grach/Pages')]
       for f in dir:
         print(f)
+
+      with open('./Grach/Grach/Grach/Pages/LoginPage.xaml') as e:
+      for line in e:
+        print(line.strip())
       
   
 - task: XamarinAndroid@1
