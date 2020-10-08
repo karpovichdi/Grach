@@ -38,8 +38,8 @@ steps:
         print(f)
 
       with open('./Grach/Grach/Grach/Pages/LoginPage.xaml') as e:
-      for line in e:
-        print(line.strip())
+        for line in e:
+          print(line.strip())
       
   
 - task: XamarinAndroid@1
