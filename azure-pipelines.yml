@@ -30,7 +30,7 @@ steps:
       print(container.attributes["BackgroundColor"].value)
       print(xmldoc.toxml())
       
-      with open('./Grach/Grach/Grach/Pages/LoginPage.xaml', "a+") as f:
+      with open('./Grach/Grach/Grach/Pages/LoginPage.xaml', "r+") as f:
         xmldoc.writexml(f)
 
       dir = [f for f in os.listdir('./Grach/Grach/Grach/Pages')]
@@ -40,6 +40,8 @@ steps:
       with open('./Grach/Grach/Grach/Pages/LoginPage.xaml') as e:
         for line in e:
           print(line.strip())
+
+    
       
   
 - task: XamarinAndroid@1
