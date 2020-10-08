@@ -13,7 +13,7 @@ variables:
   value: '**/*.sln'
 - name: configuration
   value: 'Release' 
-- group: android-build-variables
+- group: xamarin-ios-pipeline
 
 pool:
   vmImage: 'macos-latest'
