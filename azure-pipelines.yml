@@ -4,51 +4,47 @@
 # https://aka.ms/yaml
 
 trigger:
-- dev
+- ios-pipeline-feature
 
 variables:
 - name: one
   value: initialValue 
-- group: android-build-variables
+- name: solutionPath
+  value: '**/*.sln'
+- name: configuration
+  value: 'Release' 
+- group: xamarin-ios-pipeline
 
 pool:
   vmImage: 'macos-latest'
 
 steps:  
 
+- task: InstallAppleCertificate@2
+  inputs:
+   certSecureFile: '$(p12FileName)'
+   certPwd: '$(p12Password)'
+   keychain: 'temp'
+   deleteCert: true
+
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+   provisioningProfileLocation: 'secureFiles'
+   provProfileSecureFile: '$(provisioningProfile)'
+   removeProfile: true
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '**/*.sln'
+    restoreSolution: '$(solutionPath)'
   
-- task: XamarinAndroid@1
+- task: XamariniOS@2
   inputs:
-    projectFile: '**/*droid*.csproj'
-    outputDirectory: '$(outputDirectory)'
-    configuration: '$(buildConfiguration)'
-
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk' 
-    apksign: true
-    apksignerKeystoreFile: 'Grach.keystore'
-    apksignerKeystorePassword: $(keystore.password)
-    apksignerKeystoreAlias: $(key.alias)
-    apksignerKeyPassword: $(key.password)
-    apksignerArguments: --out $(outputDirectory)/app.release.apk
-    zipalign: true
-
-- task: AppCenterDistribute@3
-  inputs:
-    serverEndpoint: 'GrachVSAC'
-    appSlug: '$(appSlug)'
-    appFile: '$(outputDirectory)/app.release.apk'
-    releaseNotesOption: 'input'
-    releaseNotesInput: 'New version'
-    destinationType: 'groups'
-    distributionGroupId: '$(distributionGroupId)'
-
-- script: echo $(key.alias)  # prints "someValue"
-  displayName: Variable is $(key.alias)  # display name is "Variable is $(myInner)"
-  
+    solutionFile: '$(solutionPath)'
+    configuration: '$(configuration)'
+    packageApp: true
+    buildForSimulator: false
+    runNugetRestore: false
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    signingProvisioningProfileID: '$(APPLE_PROV_PROFILE_UUID)'
