@@ -44,7 +44,7 @@ steps:
     solutionFile: '$(solutionPath)'
     configuration: '$(configuration)'
     packageApp: true
-    buildForSimulator: false
+    buildForSimulator: true
     runNugetRestore: false
     signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
     signingProvisioningProfileID: '$(APPLE_PROV_PROFILE_UUID)'
