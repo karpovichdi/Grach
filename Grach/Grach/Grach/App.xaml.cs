@@ -39,6 +39,7 @@ namespace Grach
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             AppDependencies.Register(containerRegistry, Container);
+            //Darou
         }
 
         protected override void OnStart()
