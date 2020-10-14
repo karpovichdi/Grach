@@ -1,0 +1,26 @@
+trigger: none
+
+stages:
+- stage: BuildProjects
+  displayName: Build and Test projects
+  variables:
+  - group: jobhub-mobile-dev-variables
+
+  pool:
+    vmImage: 'macos-latest'
+
+  jobs:
+  - job: BuildAndroidProject
+    displayName: Build Android Project
+    steps:
+    - template: templates/restore-build-test.yml
+    - template: templates/android-build.yml
+
+  - job: BuildIosProject
+    displayName: Build iOS Project
+    variables:
+      shouldPackageApp: false
+      isSimulatorBuild: true
+    steps:
+    - template: templates/restore-build-test.yml
+    - template: templates/ios-build.yml

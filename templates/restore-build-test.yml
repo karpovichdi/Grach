@@ -1,0 +1,21 @@
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Restore Projects
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+    
+- task: UseDotNet@2
+  displayName:  Set .NET Core SDK
+  inputs:
+    packageType: sdk
+    version: 3.0.x
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+   
+- task: NuGetToolInstaller@1
+  displayName: Add Nuget tool
+
+- task: NuGetCommand@2
+  displayName: Update Nuget packages
+  inputs:
+    restoreSolution: '**/*.sln'
