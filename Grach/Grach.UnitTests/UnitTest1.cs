@@ -7,6 +7,7 @@ namespace Grach.UnitTests
         [SetUp]
         public void Setup()
         {
+            //
         }
 
         [Test]
