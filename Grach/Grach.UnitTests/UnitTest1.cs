@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Grach.Tests
+namespace Grach.UnitTests
 {
     public class Tests
     {
