@@ -1,39 +1,24 @@
-trigger:
-- dev
+trigger: none
 
 variables:
+- name: solutionPath
+  value: '**/*.sln'
+- name: configuration
+  value: 'Release'
 - group: android-build-variables
+- group: xamarin-ios-pipeline
 
 pool:
   vmImage: 'macos-latest'
 
-steps:
+steps:  
 
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '**/*.sln'
-
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'inline'
-    script: |
-      import os
-
-      from xml.dom import minidom
-      pathToDoc = './Grach/Grach/Grach/Pages/LoginPage.xaml'
-
-      xmlFile = minidom.parse(pathToDoc)
-      containers = xmlFile.getElementsByTagName("ContentPage")
-      container = containers[0]
-      container.attributes["BackgroundColor"].value = $(loginBackgroundColor)
-      print
-      print(xmlFile.toxml())
-      
-      with open(pathToDoc, "w") as f:
-        xmlFile.writexml(f)
-
+    restoreSolution: '$(solutionPath)'
+  
 - task: XamarinAndroid@1
   inputs:
     projectFile: '**/*droid*.csproj'
@@ -42,34 +27,7 @@ steps:
 
 - task: AndroidSigning@3
   inputs:
-    apkFiles: '**/*.apk'
-    apksign: true
-    apksignerKeystoreFile: 'Grach.keystore'
-    apksignerKeystorePassword: $(keystore.password)
-    apksignerKeystoreAlias: $(key.alias)
-    apksignerKeyPassword: $(key.password)
-    apksignerArguments: --out $(outputDirectory)/app.release.apk
-    zipalign: true
-
-- task: AppCenterDistribute@3
-  inputs:
-    serverEndpoint: 'GrachVSAC'
-    appSlug: '$(appSlug2)'
-    appFile: '$(outputDirectory)/app.release.apk'
-    releaseNotesOption: 'input'
-    releaseNotesInput: 'New version'
-    destinationType: 'groups'
-    distributionGroupId: '$(distributionGroupId2)'
-
-- task: XamarinAndroid@1
-  inputs:
-    projectFile: '**/*droid*.csproj'
-    outputDirectory: '$(outputDirectory)'
-    configuration: '$(multiBuildConfiguration1)'
-
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk'
+    apkFiles: '**/*.apk' 
     apksign: true
     apksignerKeystoreFile: 'Grach.keystore'
     apksignerKeystorePassword: $(keystore.password)
@@ -87,3 +45,26 @@ steps:
     releaseNotesInput: 'New version'
     destinationType: 'groups'
     distributionGroupId: '$(distributionGroupId)'
+
+- task: InstallAppleCertificate@2
+  inputs:
+   certSecureFile: '$(p12FileName)'
+   certPwd: '$(p12Password)'
+   keychain: 'temp'
+   deleteCert: true
+
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+   provisioningProfileLocation: 'secureFiles'
+   provProfileSecureFile: '$(provisioningProfile)'
+   removeProfile: true
+
+- task: XamariniOS@2
+  inputs:
+    solutionFile: '$(solutionPath)'
+    configuration: '$(configuration)'
+    packageApp: true
+    buildForSimulator: true
+    runNugetRestore: false
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    signingProvisioningProfileID: '$(APPLE_PROV_PROFILE_UUID)'
