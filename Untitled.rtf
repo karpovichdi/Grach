@@ -1,0 +1,169 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red90\green127\blue230;\red29\green29\blue29;\red178\green119\blue255;
+\red197\green197\blue197;\red101\green101\blue101;\red236\green236\blue236;\red17\green49\blue35;\red175\green175\blue175;
+\red51\green197\blue124;\red188\green145\blue90;\red87\green183\blue193;\red217\green174\blue255;}
+{\*\expandedcolortbl;;\csgenericrgb\c35294\c49804\c90196;\csgenericrgb\c11373\c11373\c11373;\csgenericrgb\c69804\c46667\c100000;
+\csgenericrgb\c77255\c77255\c77255;\csgenericrgb\c39608\c39608\c39608;\csgenericrgb\c92549\c92549\c92549;\csgenericrgb\c6667\c19216\c13725;\csgenericrgb\c68627\c68627\c68627;
+\csgenericrgb\c20000\c77255\c48627;\csgenericrgb\c73725\c56863\c35294;\csgenericrgb\c34118\c71765\c75686;\csgenericrgb\c85098\c68235\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 public partial class \cf4 DataTemplate1 \cf5 : \cf6 ContentView\
+\cf7 \cb8 \{\cb3 \
+    \cf2 public \cf4 DataTemplate1\cf9 ()\
+    \{\
+        \cf2 try\
+        \cf9 \{\
+            \cf10 InitializeComponent\cf9 ();\
+        \}\
+        \cf2 catch\cf9 (\cf4 Exception \cf6 e\cf9 )\
+        \{\
+            \
+        \}\
+    \}\
+\cf7 \cb8 \}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs40 \cf5 \cb3 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs26 \cf5 <?xml version=\cf11 "1.0"\cf5  encoding=\cf11 "utf-8"\cf5 ?>\
+\
+\cf7 \cb8 <\cf4 \cb3 ContentView \cf12 xmlns\cf5 =\cf11 "http://xamarin.com/schemas/2014/forms"\
+              \cf12 xmlns\cf5 :\cf12 x\cf5 =\cf11 "http://schemas.microsoft.com/winfx/2009/xaml"\
+              \cf12 xmlns\cf5 :\cf12 viewModels\cf5 =\cf11 "clr-namespace:JobHub.Forms.ViewModels;assembly=JobHub.Forms"\
+              \cf12 x\cf5 :\cf13 Class\cf5 =\cf11 "JobHub.Forms.Controls.ViewCells.DataTemplate1"\cf5 >\
+         <\cf4 StackLayout \cf12 VerticalOptions\cf5 ="\cf12 CenterAndExpand\cf5 "\
+                      \cf12 HorizontalOptions\cf5 ="\cf12 CenterAndExpand\cf5 " \
+                      \cf12 x\cf5 :\cf13 DataType\cf5 ="\cf12 viewModels\cf5 :\cf4 TestCarouselViewModel1\cf5 ">\
+             <\cf4 Label \cf12 Text\cf5 ="TEMPLATE 1"\
+                    \cf12 BackgroundColor\cf5 ="\cf12 Red\cf5 "/>\
+             <\cf4 Button \cf12 Text\cf5 ="Template 1 button_1"\
+                     \cf12 Command\cf5 ="\{\cf4 Binding \cf12 ButtonClickCommand\cf5 \}"/>\
+             <\cf4 Button \cf12 Text\cf5 ="Template 1 button_2"/>\
+             <\cf4 Button \cf12 Text\cf5 ="Template 1 button_3"/>\
+         </\cf4 StackLayout\cf5 >\
+</\cf4 ContentView\cf7 \cb8 >\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs40 \cf5 \cb3 \
+\
+\
+\
+\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs26 \cf6 using System;\
+using JobHub.Core.Models;\
+using JobHub.Forms.Controls.ViewCells;\
+\cf2 using \cf4 JobHub\cf9 .\cf4 Forms\cf9 .\cf4 ViewModels\cf9 ;\
+\cf2 using \cf4 Xamarin\cf9 .\cf4 Forms\cf9 ;\
+\
+\cf2 namespace \cf4 JobHub\cf9 .\cf4 Forms\cf9 .\cf4 TemplateSelectors\
+\cf7 \cb8 \{\cb3 \
+    \cf2 public class \cf4 CarouselTemplateSelector \cf5 : \cf6 Xamarin.Forms.\cf4 DataTemplateSelector\
+    \cf9 \{\
+        \cf2 public \cf4 DataTemplate \cf12 Template1 \cf9 \{ \cf10 get\cf9 ; \cf10 set\cf9 ; \}\
+        \cf2 public \cf4 DataTemplate \cf12 Template2 \cf9 \{ \cf10 get\cf9 ; \cf10 set\cf9 ; \}\
+        \cf2 public \cf4 DataTemplate \cf12 Template3 \cf9 \{ \cf10 get\cf9 ; \cf10 set\cf9 ; \}\
+\
+        \cf2 protected override \cf4 DataTemplate \cf10 OnSelectTemplate \cf9 (\cf2 object \cf9 item, \cf4 BindableObject \cf9 container)\
+        \{\
+            \cf2 if \cf9 (item \cf2 is \cf4 TestCarouselViewModel1\cf9 )\
+            \{\
+                \cf2 return \cf12 Template1\cf9 ;\
+            \}\
+\
+            \cf2 if \cf9 (item \cf2 is \cf4 TestCarouselViewModel2\cf9 )\
+            \{\
+                \cf2 return \cf12 Template3\cf9 ;\
+            \}\
+\
+            \cf2 return \cf12 Template1\cf9 ;\
+        \}\
+    \}\
+\cf7 \cb8 \}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs40 \cf5 \cb3 \
+\
+\
+\
+\
+\
+\
+<?xml version=\cf11 "1.0"\cf5  encoding=\cf11 "utf-8"\cf5 ?>\
+<\cf4 ContentPage \cf12 xmlns\cf5 =\cf11 "http://xamarin.com/schemas/2014/forms"\
+             \cf12 xmlns\cf5 :\cf12 x\cf5 =\cf11 "http://schemas.microsoft.com/winfx/2009/xaml"\
+             \cf12 xmlns\cf5 :\cf12 ios\cf5 =\cf11 "clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"\
+             \cf12 xmlns\cf5 :\cf12 viewModels\cf5 =\cf11 "clr-namespace:JobHub.Forms.ViewModels;assembly=JobHub.Forms"\
+             \cf12 xmlns\cf5 :\cf12 abstractions\cf5 =\cf11 "clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"\
+             \cf12 xmlns\cf5 :\cf12 templateSelectors\cf5 =\cf11 "clr-namespace:JobHub.Forms.TemplateSelectors;assembly=JobHub.Forms"\
+             \cf6 xmlns:models="clr-namespace:JobHub.Core.Models;assembly=JobHub.Core"\
+             xmlns:forms="clr-namespace:JobHub.Forms;assembly=JobHub.Forms"\
+             \cf12 xmlns\cf5 :\cf12 viewCells\cf5 =\cf11 "clr-namespace:JobHub.Forms.Controls.ViewCells;assembly=JobHub.Forms"\
+             \cf12 x\cf5 :\cf13 DataType\cf5 ="\cf12 viewModels\cf5 :\cf4 StubViewModel\cf5 "\
+             \cf4 NavigationPage\cf5 .\cf10 HasNavigationBar\cf5 ="True"\
+             \cf12 ios\cf5 :\cf4 Page\cf5 .\cf10 UseSafeArea\cf5 ="True"\
+             \cf12 Title\cf5 ="StubPage"\
+             \cf12 x\cf5 :\cf13 Class\cf5 =\cf11 "JobHub.Forms.Pages.StubPage"\cf5 >\
+    <\cf4 ContentPage\cf5 .\cf12 Resources\cf5 >\
+        <\cf4 ResourceDictionary\cf5 >\
+            <\cf4 DataTemplate \cf12 x\cf5 :\cf13 Key\cf5 =\cf11 "template1"\cf5 >\
+                <\cf12 viewCells\cf5 :\cf4 DataTemplate1\cf5  />\
+            </\cf4 DataTemplate\cf5 >\
+            <\cf4 DataTemplate \cf12 x\cf5 :\cf13 Key\cf5 =\cf11 "template2"\cf5 >\
+                <\cf12 viewCells\cf5 :\cf4 DataTemplate2\cf5  />\
+            </\cf4 DataTemplate\cf5 >\
+            <\cf4 DataTemplate \cf12 x\cf5 :\cf13 Key\cf5 =\cf11 "template3"\cf5 >\
+                <\cf12 viewCells\cf5 :\cf4 DataTemplate3\cf5  />\
+            </\cf4 DataTemplate\cf5 >\
+            <\cf12 templateSelectors\cf5 :\cf4 CarouselTemplateSelector \cf12 x\cf5 :\cf13 Key\cf5 =\cf11 "statusDataTemplateSelector"\
+                                                     \cf12 Template1\cf5 ="\{\cf4 StaticResource \cf12 template1\cf5 \}"\
+                                                     \cf12 Template2\cf5 ="\{\cf4 StaticResource \cf12 template2\cf5 \}"\
+                                                     \cf12 Template3\cf5 ="\{\cf4 StaticResource \cf12 template3\cf5 \}"/>\
+        </\cf4 ResourceDictionary\cf5 >\
+    </\cf4 ContentPage\cf5 .\cf12 Resources\cf5 >\
+             \
+    <\cf4 Grid \cf12 BackgroundColor\cf5 ="\cf12 Yellow\cf5 ">\
+        <\cf4 Grid\cf5 .\cf12 RowDefinitions\cf5 >\
+            <\cf4 RowDefinition \cf12 Height\cf5 ="*"/>\
+            <\cf4 RowDefinition \cf12 Height\cf5 ="50"/>\
+        </\cf4 Grid\cf5 .\cf12 RowDefinitions\cf5 >\
+        <\cf4 Grid\cf5 .\cf12 ColumnDefinitions\cf5 >\
+            <\cf4 ColumnDefinition \cf12 Width\cf5 ="*"/>\
+        </\cf4 Grid\cf5 .\cf12 ColumnDefinitions\cf5 >\
+        <\cf12 abstractions\cf5 :\cf4 CarouselViewControl \cf12 AnimateTransition\cf5 ="False"\
+                                          \cf12 ItemsSource\cf5 ="\{\cf4 Binding \cf12 DataSource\cf5 \}"\
+                                          \cf12 Position\cf5 ="\{\cf4 Binding \cf12 DataSourceIndex\cf5 \}"\
+                                          \cf12 BackgroundColor\cf5 ="\cf12 Red\cf5 "\
+                                          \cf12 IsSwipeEnabled\cf5 ="false"\
+                                          \cf12 ItemTemplate\cf5 ="\{\cf4 StaticResource \cf12 statusDataTemplateSelector\cf5 \}"/>\
+        <\cf4 Button Grid\cf5 .\cf10 Row\cf5 ="1"\
+                \cf12 HorizontalOptions\cf5 ="\cf12 Start\cf5 " \
+                \cf12 Command\cf5 ="\{\cf4 Binding \cf12 PrevCarouselPageCommand\cf5 \}"\
+                \cf12 Text\cf5 ="Prev"/>\
+        <\cf4 Button Grid\cf5 .\cf10 Row\cf5 ="1" \
+                \cf12 HorizontalOptions\cf5 ="\cf12 End\cf5 "\
+                \cf12 Command\cf5 ="\cf7 \cb8 \{\cf4 \cb3 Binding \cf12 NextCarouselPageCommand\cf7 \cb8 \}\cf5 \cb3 "\
+                \cf12 Text\cf5 ="Next"/>\
+    </\cf4 Grid\cf5 >\
+    \
+</\cf4 ContentPage\cf5 >\
+}
